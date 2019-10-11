@@ -1,7 +1,6 @@
 import React, { useEffect, useState, ChangeEvent } from 'react';
 import { Dispatch } from 'redux';
-import { ThunkDispatch } from 'redux-thunk';
-import { connect, MapDispatchToProps, MapStateToProps } from 'react-redux';
+import { connect, MapDispatchToProps } from 'react-redux';
 import {
   saveUsername as saveUsernameAction,
   saveUserMessage as saveUserMessageAction,

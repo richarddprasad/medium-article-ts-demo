@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Dispatch } from 'redux';
+import { AnyAction } from 'redux';
 import { ThunkDispatch } from 'redux-thunk';
 import { connect, MapDispatchToProps, MapStateToProps } from 'react-redux';
 import { IAppState } from './store/RootReducer';
@@ -38,7 +38,7 @@ const UserListUnconnected: React.FC<IUserList> =
             getFriendList('https://jsonplaceholder.typicode.com/users');
             setFetchFriends(false);
         }
-    }, [fetchFriends]);
+    }, [fetchFriends, getFriendList]);
 
     let friendListJsx: JSX.Element | undefined = undefined;
     if(user.friendList) {
@@ -85,7 +85,7 @@ const mapStateToProps: MapStateToProps<
 const mapDispatchToProps: MapDispatchToProps<
     IUserListDispatchToProps,
     IUserListOwnProps
-> = (dispatch: ThunkDispatch<{}, {}, any>, ownProps: IUserListOwnProps) => ({
+> = (dispatch: ThunkDispatch<{}, {}, AnyAction>, ownProps: IUserListOwnProps) => ({
     getFriendList: async (url: string) => {
         dispatch(getFriendListAction(url));
     }
