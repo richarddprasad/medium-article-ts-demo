@@ -97,9 +97,3 @@ export const App = connect<
   IAppOwnProps,
   IAppState
 >(null, mapDispatchToProps)(AppUnconnected);
-
-/*
-<p>
-Hi, {username ? username : 'Mysterious Entity'}, your user type is {username ? userType : 'irrelevant because I do not know you'}.
-</p>
-*/
